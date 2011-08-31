@@ -1,0 +1,766 @@
+Binary file area.o matches
+cmdio.c:		sprintf(buf,"SELECT * FROM help WHERE level <= %li",crit->level);
+cmdio.c:		sprintf(buf,"SELECT DISTINCT hindex FROM help where level <= %li",crit->level);
+cmdio.c:					sprintf(buf,"SELECT * FROM help WHERE hindex=\"%s\" AND level <= %li",row[0],crit->level);
+cmdio.c:	sprintf(buf,"SELECT * FROM help WHERE level <= %li",crit->level);
+cmdio.c:			send_to(crit->socket,buf);
+cmdio.c:	if (crit->level == LEVEL_IMP)
+cmdio.c:	if (!strargcmp(crit->name, names))
+cmdio.c:	if (!strcasecmp(crit->name, sender))
+cmdio.c:	if (!strargcmp(names, crit->name))
+cmdio.c:	if (!strcasecmp(crit->name,"pip") || !strcasecmp(crit->name,"borlak") || !strcasecmp(crit->name,"athanos"))
+cmdio.c://	if (crit->level == LEVEL_IMP)
+cmdio.c:	if (!strcasecmp(crit->name, sender))
+cmdio.c:				IsPlaying(crit) ? display_timestamp(notetime,crit->socket->hrs) :
+cmdio.c:		IsPlaying(crit) ? display_timestamp(helptime,crit->socket->hrs) : display_timestamp(helptime,0));
+cmdio.c:	if(crit->socket->save_time)
+cmdio.c:		sendcritf(crit, "You must wait %li seconds before you can submit your %s", crit->socket->save_time, type);
+cmdio.c:		crit->socket->id, crit->name, type, crit->in_room->vnum, smash_quotes(input));
+cmdio.c:	crit->socket->save_time = 10;
+Binary file cmdio.o matches
+command.c:		for(exit = crit->in_room->exits; exit; exit = exit->next )
+command.c:						exit->name, crit->in_room->name, crit->in_room->vnum,
+command.c:				if (crit->rider)
+command.c:					sendcritf(crit,"You can't move on your own until %s dismounts you.",crit->rider->name);
+command.c:				if (crit->mount)
+command.c:					message("$n ride$x $p on $N.",crit,crit->mount,exit->name);
+command.c:				if (crit->mount)
+command.c:					trans(crit->mount,crit);
+command.c:					message("$n arrive$x riding $N.",crit,crit->mount,crit->in_room);
+command.c:				message("$n $v arrived.",crit,crit->in_room,0);
+command.c:		if(crit->socket->string)
+command.c:			str_dup(&(*crit->socket->variable), crit->socket->string);
+command.c:			DeleteObject(crit->socket->string)
+command.c:		if(crit->level >= command_table[i].level
+command.c:		if(crit->state > command_table[i].state)
+command.c:		if(crit->position > command_table[i].position)
+command.c:	&& (command_table[i].log == LOG_YES || log_all || flag_isset(crit->flags, CFLAG_LOG)) )
+command.c:		mudlog("Logging %-15s -> %s %s", crit->name, command, all_args(arguments,0));
+command.c:		mudlog("name: %s || invalid command: %s %s",crit->name,command,all_args(arguments,0));
+command.c:		if(command_table[i].level > crit->level)
+command.c:		send_immediately(crit->socket,buf);
+command.c:	if(crit->socket->save_time)
+command.c:		crit->socket->save_time = 20;
+Binary file command.o matches
+Binary file const.o matches
+Binary file convert.o matches
+creature.c:	for(xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+creature.c:		if( (IsPlayer(xcrit) && !strargindex(xcrit->name, argument))
+creature.c:		|| (!IsPlayer(xcrit) && !strargindex(xcrit->keywords, argument)) )
+creature.c:		for(xcrit = creature_list; xcrit; xcrit = xcrit->next)
+creature.c:			if( (IsPlayer(xcrit) && !strargindex(xcrit->name, argument))
+creature.c:			|| (!IsPlayer(xcrit) && !strargindex(xcrit->keywords, argument)) )
+creature.c:	while(crit->equipment)
+creature.c:		remove_obj(crit, crit->equipment);
+creature.c:	while(crit->inventory)
+creature.c:		trans(crit->inventory, corpse);
+creature.c:	sprintf(buf,"corpse %s",crit->name);
+creature.c:	sprintf(buf,"the corpse of %s",crit->name);
+creature.c:	sprintf(buf,"The corpse of %s rests peacefully here.",crit->name);
+creature.c:	trans(corpse, crit->in_room);
+creature.c:		crit->hp = crit->move = 1;
+creature.c:		crit->state = STATE_NORMAL;
+creature.c:		crit->position = POS_STANDING;
+creature.c:	long before = crit->hp;
+creature.c:	crit->hp += amount;
+creature.c:	if(before < -4 && crit->hp <= 0 && crit->hp > -5)
+creature.c:		crit->state = STATE_UNCONSCIOUS;
+creature.c:	else if(before <= 0 && crit->hp > 0)
+creature.c:		crit->state = STATE_NORMAL;
+creature.c:	long before = crit->hp;
+creature.c:	crit->hp -= amount;
+creature.c:	if(crit->hp < -10)
+creature.c:	else if(crit->hp <= 0)
+creature.c:		if(before >= 1 && crit->hp > -5)
+creature.c:			crit->state = STATE_UNCONSCIOUS;
+creature.c:		if(before >= -4 && crit->hp <= -5)
+creature.c:			crit->state = STATE_DYING;
+creature.c:	switch(crit->state)
+creature.c:		if(crit->position < POS_PRONE)
+creature.c:				crit->position = POS_PRONE;
+creature.c:		if(crit->position < POS_PRONE && percent() > 50)
+creature.c:			crit->position = POS_PRONE;
+creature.c:	send_to(crit->socket, (char*)buf);
+creature.c:	send_to(crit->socket, "\n\r");
+creature.c:	send_to(crit->socket, (char*)varbuf);
+creature.c:	send_to(crit->socket, "\n\r");
+creature.c:	MSOCKET *sock = crit->socket;
+creature.c:		mudlog("%s just tried to change his password and put in the wrong password!", crit->name);
+creature.c:		sprintf(buf+strlen(buf),"| Hrs from GMT : %li\n\r",	crit->socket->hrs);
+creature.c:		sprintf(buf+strlen(buf),"| Lines        : %li\n\r", 	crit->socket->lines);
+creature.c:		sprintf(buf+strlen(buf),"| Ansi         : %s\n\r", 	flag_isset(crit->flags, CFLAG_ANSI) ? "On" : "Off" );
+creature.c:		sprintf(buf+strlen(buf),"| Brief        : %s\n\r",	flag_isset(crit->flags, CFLAG_BRIEF) ? "On" : "Off" );
+creature.c:		sprintf(buf+strlen(buf),"| Prompt       : %s\n\r",	crit->socket->prompt);
+creature.c:		sprintf(buf+strlen(buf),"| Blank        : %s\n\r",	flag_isset(crit->flags, CFLAG_BLANK) ? "On" : "Off");
+creature.c:		sprintf(buf+strlen(buf),"| Menu         : %s\n\r",	flag_isset(crit->flags, CFLAG_NOMENU) ? "Off" : "On");
+creature.c:		sprintf(buf+strlen(buf),"| Anti-Idle    : %s\n\r",	flag_isset(crit->flags, CFLAG_ANTIIDLE) ? "On" : "Off");
+creature.c:		if(crit->level >= LEVEL_BUILDER)
+creature.c:		sprintf(buf+strlen(buf),"| Notify       : %s\n\r", 	flag_isset(crit->flags, CFLAG_NOTIFY) ? "On" : "Off");
+creature.c:		sprintf(buf+strlen(buf),"| WizInvis     : %s\n\r",	flag_isset(crit->flags, CFLAG_WIZINVIS) ? "On" : "Off");
+creature.c:		sendcritf(crit, "You set your hours from GMT to %li",crit->socket->hrs = value);
+creature.c:			crit->socket->lines = value);
+creature.c:	else if(!strindex("notify", arguments[0]) && crit->level >= LEVEL_BUILDER)
+creature.c:			strcpy(orig, crit->socket->prompt);
+creature.c:				str_dup(&crit->socket->prompt, show);
+creature.c:				send_immediately(crit->socket,buf);
+creature.c:				send_immediately(crit->socket,"\n\r");
+creature.c:			send_immediately(crit->socket,"Type '&+Whelp prompt&N' for more configuration options.\n\r");
+creature.c:			str_dup(&crit->socket->prompt, orig);
+creature.c:			str_dup(&crit->socket->prompt, show);
+creature.c:		str_dup(&crit->socket->prompt, all_args(arguments,1));
+creature.c:	if(flag_isset(crit->flags, flag))
+creature.c:		flag_remove(crit->flags, flag);
+creature.c:		flag_set(crit->flags, flag);
+creature.c:		sprintf(buf,"a hairball of %s",crit->name);
+creature.c:	if(crit->level >= LEVEL_BUILDER)
+creature.c:	if(crit->strength >= 75 && percent() > 50)
+creature.c:		sprintf(buf,"%s's sweat",crit->name);
+creature.c:		trans(xobj,xcrit ? (void*)xcrit : (void*)crit->in_room);
+creature.c:		xcrit->name, find_path(crit,xcrit,1000));
+creature.c:	if(!ValidString(crit->socket->reply))
+creature.c:	sprintf(buf,"tell %s %s",crit->socket->reply,all_args(arguments,0));
+creature.c:	send_immediately(crit->socket,"Bye!\n\r");
+creature.c:	if (crit->socket->connected != CON_LINKDEAD)
+creature.c:		crit->socket->connected = CON_MENU; // before the rest so during fwrite makes online = 0
+creature.c:	message_all("&+WNotice->&N$p has left the game.",crit,crit->name,1);
+creature.c:	if(flag_isset(crit->flags, CFLAG_NOMENU) || crit->socket->connected == CON_LINKDEAD)
+creature.c:		free_socket(crit->socket); // terminated.
+creature.c:		nanny(crit->socket,"");
+creature.c:		xcrit->name,all_args(arguments,1));
+creature.c:	sendcritf(xcrit,"&+y%s tells you, '&+Y%s&n&+y'",crit->name,all_args(arguments,1));
+creature.c:		str_dup(&xcrit->socket->reply, crit->name);
+creature.c:	str_dup(&crit->socket->title, buf);
+creature.c:	if (!flag_isset(xcrit->flags,CFLAG_MOUNT))
+creature.c:		sendcritf(crit,"You cannot mount %s.",xcrit->name);
+creature.c:	if (crit->mount)
+creature.c:	if (!crit->mount)
+creature.c:	message("$n climb$x down off of $N.",crit,crit->mount,0);
+creature.c:	trans(crit,crit->in_room);
+creature.c:	crit->state = STATE_RESTING;
+creature.c:	if(crit->position == POS_SITTING)
+creature.c:	else if(crit->position == POS_PRONE)
+creature.c:	crit->position = POS_SITTING;
+creature.c:	crit->position = POS_STANDING;
+creature.c:	crit->state = STATE_NORMAL;
+creature.c:	crit->state = STATE_SLEEPING;
+creature.c:	crit->state = STATE_NORMAL;
+creature.c:	crit->position = POS_PRONE;
+Binary file creature.o matches
+editor.c:	switch(*(unsigned int*)crit->socket->editing)
+editor.c:		keywords	= xcrit->keywords;
+editor.c:		name		= xcrit->name;
+editor.c:		long_descr	= xcrit->long_descr;
+editor.c:				str_dup(&xcrit->keywords, str_minus(xcrit->keywords,arguments[x],' '));
+editor.c:		worn = xcrit->wear;
+editor.c:		if(!strlistcmp(xobj->wear, xcrit->wear))
+editor.c:			sendcritf(crit,"&+R%s can not be worn by %s.&N",xobj->name,xcrit->name);
+editor.c:		else if(strargcmp(xcrit->wear, reset->command))
+editor.c:			sendcritf(crit,"&+R%s does not have a '%s' wear slot.&N",xcrit->name,reset->command);
+editor.c:				str_dup(&xcrit->wear, str_minus(xcrit->wear, arguments[x], ' '));
+editor.c:	if(!crit->socket->modified)
+editor.c:	switch(*(unsigned int*)crit->socket->editing)
+editor.c:		fwrite_area((AREA*)crit->socket->editing, 0);
+editor.c:		xcrit = (CREATURE*)crit->socket->editing;
+editor.c:		else if(xcrit->prototype)
+editor.c:			fwrite_creature(xcrit->vnum);
+editor.c:		if(strargcmp(xcrit->loaded, crit->name))
+editor.c:			str_dup(&xcrit->loaded, str_add(xcrit->loaded,crit->name,' '));
+editor.c:		xobj = (OBJECT*)crit->socket->editing;
+editor.c:		if(strargcmp(xobj->loaded, crit->name))
+editor.c:			str_dup(&xobj->loaded, str_add(xobj->loaded,crit->name,' '));
+editor.c:		xroom = (ROOM*)crit->socket->editing;
+editor.c:		if(strargcmp(xroom->loaded, crit->name))
+editor.c:			str_dup(&xroom->loaded, str_add(xroom->loaded,crit->name,' '));
+editor.c:		fwrite_extra((EXTRA*)crit->socket->editing);
+editor.c:		reset = (RESET*)crit->socket->editing;
+editor.c:		fwrite_resets(crit->in_room);
+editor.c:		fwrite_social((SOCIAL*)crit->socket->editing);
+editor.c:		fwrite_help((HELP*)crit->socket->editing);  // writes to mysql, deletes help from memory.
+editor.c:		fwrite_note((NOTE*)crit->socket->editing);
+editor.c:		fwrite_shop((SHOP*)crit->socket->editing);
+editor.c:		mudlog("EDITOR(done): broken type (%d)", *(unsigned int*)crit->socket->editing);
+editor.c:		return crit->name;
+editor.c:        switch(*(unsigned int*)crit->socket->editing)
+editor.c:		free_help((HELP*)crit->socket->editing);
+editor.c:	crit->socket->editing	= 0;
+editor.c:	crit->socket->variable	= 0;
+editor.c:	if(ValidString(crit->socket->string))
+editor.c:		DeleteObject(crit->socket->string)
+editor.c:		room = (ROOM*)crit->socket->editing;
+editor.c:		extra = (EXTRA*)crit->socket->editing;
+editor.c:		crit->socket->editing = extra->next ? (void*)extra->next : extra->prev ? (void*)extra->prev : 
+editor.c:			crit->name,
+editor.c:				crit->socket->editing = (EXTRA*)extra;						\
+editor.c:			crit->socket->editing = (EXTRA*)extra;							\
+editor.c://	send_to(crit->socket,"Option: ");
+editor.c://	send_to(crit->socket,"Option: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c:	ROOM *room = crit->in_room;
+editor.c:		editing = (RESET*)crit->socket->editing;
+editor.c:				name	= xcrit->name;
+editor.c:				pname	= xcrit->name;
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c:		crit->socket->modified = 1;
+editor.c://	send_to(crit->socket,"\n\rOption: ");
+editor.c:	area = find_area(((type*)crit->socket->editing)->vnum);					\
+editor.c:				    ((type*)crit->socket->editing)->vnum, area->high)) < 0) {	\
+editor.c:				    ((type*)crit->socket->editing)->vnum, area->low)) < 0) {	\
+editor.c:	crit->socket->editing = (void*)findfunc(vnum);						\
+editor.c:	crit->socket->modified = 0;
+editor.c:	if(*(unsigned int*)crit->socket->editing == TYPE_EXTRA)
+editor.c:		EXTRA *extra = (EXTRA*)crit->socket->editing;
+editor.c:		crit->socket->editing = extra->loadtype == TYPE_ROOM ?
+editor.c:			if(crit->socket->modified)
+editor.c:			if(crit->socket->modified)
+editor.c:		delete_object(crit, crit->socket->editing, all);
+editor.c:		switch(*(unsigned int*)crit->socket->editing)
+editor.c:			EXTRA *extra = (EXTRA*)crit->socket->editing;
+editor.c:				crit->socket->editing = (void*)extra;
+editor.c:				crit->socket->editing = (void*)extra;
+editor.c:			reset = (RESET*)crit->socket->editing;
+editor.c:			for(reset = ((RESET*)crit->socket->editing)->room->resets; reset; reset = reset->next)
+editor.c:				&& reset->next == (RESET*)crit->socket->editing)
+editor.c:				&& reset->prev == (RESET*)crit->socket->editing)
+editor.c:			crit->socket->editing = (void*)reset;
+editor.c:	switch(*(unsigned int*)crit->socket->editing)
+editor.c:		return area_editor(crit, arguments, (AREA*)crit->socket->editing);
+editor.c:		return ban_editor(crit, arguments, (BAN*)crit->socket->editing);
+editor.c:		return creature_editor(crit, arguments, (CREATURE*)crit->socket->editing);
+editor.c:		return extra_editor(crit, arguments, (EXTRA*)crit->socket->editing);
+editor.c:		return object_editor(crit, arguments, (OBJECT*)crit->socket->editing);
+editor.c:		return shop_editor(crit, arguments, (SHOP*)crit->socket->editing);
+editor.c:		return room_editor(crit, arguments, (ROOM*)crit->socket->editing);
+editor.c:		return social_editor(crit, arguments, (SOCIAL*)crit->socket->editing);
+editor.c:		return help_editor(crit, arguments, (HELP*)crit->socket->editing);
+editor.c:		return note_editor(crit, arguments, (NOTE*)crit->socket->editing);
+editor.c:		return reset_editor(crit, arguments, (RESET*)crit->socket->editing);
+editor.c:		crit->socket->editing = 0;
+editor.c:	if(crit->level == LEVEL_IMP)
+editor.c:		if(!strargcmp(area->builders, crit->name))
+editor.c:		if(crit->level != LEVEL_IMP)
+editor.c:		area = find_area(xcrit->vnum);
+editor.c:		if(IsPlayer(xcrit) && crit->level != LEVEL_IMP)
+editor.c:		  (!strargcmp(area->builders, crit->name)
+editor.c:		if(xcrit && IsPlayer(xcrit) && crit->level != LEVEL_IMP)
+editor.c:			if(!strargcmp(xobj->loaded, crit->name))
+editor.c:		  (!strargcmp(area->builders, crit->name)
+editor.c:		  (!strargcmp(area->builders, crit->name)
+editor.c:		   (!strargcmp(area->builders, crit->name)
+editor.c:		if(strcasecmp(note->sender, crit->name))
+editor.c:	void *obj = crit->socket->editing;
+editor.c:	for(exit = crit->in_room->exits; exit; exit = exit->next)
+editor.c:	area = find_area(crit->in_room->vnum);
+editor.c:	exit		= new_exit(crit->in_room);
+editor.c:	fwrite_room(crit->in_room->vnum);
+editor.c:	wasin = crit->in_room;
+editor.c:			newr->room	= crit->in_room;
+editor.c:			newr->roomvnum	= crit->in_room->vnum;
+editor.c:		for(x = 1, reset = crit->in_room->resets; reset; reset = reset->next, x++)
+editor.c:			if(!reset && crit->in_room->resets)
+editor.c:				crit->in_room->resets->prev = newr;
+editor.c:				newr->next = crit->in_room->resets;
+editor.c:				crit->in_room->resets = newr;
+editor.c:				crit->in_room->resets = newr;
+editor.c:		if(!strcasecmp("new", arguments[1]) && crit->level == LEVEL_IMP)
+editor.c:		str_dup(&note->sender, crit->name);
+editor.c:		crit->socket->editing = toedit;
+editor.c:		message("$n starts editing $p.",crit,crit->in_room,edit_quickinfo(crit));
+editor.c:	crit->socket->modified = 0;
+editor.c:		sprintf(buf,"edit room %li",crit->in_room->vnum);
+editor.c:	if(ValidString(crit->socket->string))
+editor.c:		for(i = 0, x = 1; crit->socket->string[i] != '\0'; i++)
+editor.c:			if(crit->socket->string[i] == '\n' || crit->socket->string[i] == '\r')
+editor.c:				if(crit->socket->string[i+1] == '\n' || crit->socket->string[i+1] == '\r')
+editor.c:	send_to(crit->socket, buf);
+editor.c:	MSOCKET *sock = crit->socket;
+editor.c:	if(!crit->socket->string)
+editor.c:			if(strcmp((*crit->socket->variable), crit->socket->string))
+editor.c:				crit->socket->modified	= 1;
+Binary file editor.o matches
+extra.c:	send_to(crit->socket,"\n\rOption: ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_LOG))		strcat(buf,"LOG ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_PLAYER))	strcat(buf,"Player ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_ANSI))	strcat(buf,"Ansi ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_QUIET))	strcat(buf,"Quiet ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_MOUNT))	strcat(buf,"Mount ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_BANKER))	strcat(buf,"Banker ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_ANTIIDLE))	strcat(buf,"Anti-Idle ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_BLANK))	strcat(buf,"Blank ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_LOG))		strcat(buf,"Log ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_NOMENU))	strcat(buf,"No-Menu ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_NOTIFY))	strcat(buf,"Notify ");
+flags.c:		if(flag_isset(xcrit->flags, CFLAG_WIZINVIS))	strcat(buf,"Wizinvis ");
+Binary file flags.o matches
+info.c:	switch(*(unsigned int*)crit->socket->editing)   
+info.c:	sprintf(buf,"  %s's equipment: \n\r", crit->name);
+info.c:	if(!crit->equipment)
+info.c:		for (obj = crit->equipment; obj; obj = obj->next_content)
+info.c:if (crit->in_room)
+info.c:	room = crit->in_room;
+info.c:			room = crit->in_room;
+info.c:			strcpy(actor_name,crit->name);
+info.c:			strcpy(stage_name,xcrit->name);
+info.c:				scopy = ecopy = heshe[crit->sex];
+info.c:					acopy = ecopy = heshe[xcrit->sex];
+info.c:				scopy = ecopy = himher[crit->sex];
+info.c:					acopy = ecopy = himher[xcrit->sex];
+info.c:				scopy = ecopy = hisher[crit->sex];
+info.c:					acopy = ecopy = hisher[xcrit->sex];
+info.c:					send_immediately(crit->socket,bufactor);
+info.c:display_timestamp(18,crit->socket->hrs);
+info.c:	IsPlaying(crit) ? hrs = crit->socket->hrs : 0;
+info.c:			send_to(crit->socket,buf);
+info.c:		send_to(crit->socket,wizes);
+info.c:		send_to(crit->socket,morts);
+info.c:	if(!crit->inventory)
+info.c:		sendcrit(crit, compact_obj_list(buf, crit->inventory, 0));
+info.c:	sprintf(buf,"%s(%s) [&N&+W%s&N%s]: %s&N",color,name,crit->name,color,text);
+info.c:		flag_reverse(crit->flags, flag);				\
+info.c:			flag_isset(crit->flags, flag) ? "off" : "on");		\
+info.c:	if(flag_isset(crit->flags, flag))					\
+info.c:		flag_remove(crit->flags, flag);					\
+info.c:	sendcritf(crit,"You are %s.",crit->name);
+info.c:		position_table[crit->position], state_table[crit->state]);
+info.c:	sendcritf(crit,"Intelligence Quotient (IQ):  %li",crit->iq);
+info.c:	sendcritf(crit,"Mental Endurance (ME)     :  %li",crit->me);
+info.c:	sendcritf(crit,"Mental Affinity (MA)      :  %li",crit->ma);
+info.c:	sendcritf(crit,"Physical Strength (PS)    :  %li",crit->ps);
+info.c:	sendcritf(crit,"Physical Prowess (PP)     :  %li",crit->ps);
+info.c:	sendcritf(crit,"Physical Endurance (PE)   :  %li",crit->pe);
+info.c:	sendcritf(crit,"Physical Beauty (PB)      :  %li",crit->pb);
+info.c:	sendcritf(crit,"Player ID: %li", crit->id);
+info.c:		for(extra = crit->in_room->extras; extra; extra = extra->next)
+info.c:			for(xobj = crit->equipment; xobj && !extra; xobj = xobj->next)
+info.c:			for(xcrit = crit->in_room->crits; xcrit && !extra; xcrit = xcrit->next_content)
+info.c:				for(extra = xcrit->extras; extra; extra = extra->next)
+info.c:		sendcrit(crit,xcrit->description);
+info.c:		sendcritf(crit,"%s has %li health.",xcrit->name,xcrit->hp);
+info.c:			xcrit->name, state_table[xcrit->state], position_table[xcrit->position]);
+info.c:	sprintf(buf,		"%s\n\r",	crit->in_room->name);
+info.c:	sprintf(buf+strlen(buf),"&+W[%s]&n",exit_names(crit->in_room,0));
+info.c:	if(!flag_isset(crit->flags, CFLAG_BRIEF) || (arguments[0] && !strcasecmp(arguments[0],"verbose")))
+info.c:	sprintf(buf+strlen(buf),"\n\r%s",		crit->in_room->description);
+info.c:	if (crit->in_room->objects)
+info.c:		sendcrit(crit, compact_obj_list(buf,crit->in_room->objects,1));
+info.c:	for (xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+info.c:			if (crit->mount && crit->mount == xcrit)
+info.c:				sendcritf(crit,"You are riding &+C%s&n.",xcrit->name);
+info.c:			else if (crit->rider && crit->rider == xcrit)
+info.c:				sendcritf(crit,"You are being ridden by &+C%s&n.",xcrit->name);
+info.c:					xcrit->socket->connected == CON_LINKDEAD ? "&+G(Linkdead)&N " 
+info.c:					xcrit->name,
+info.c:					position_table[xcrit->position],
+info.c:					state_table[xcrit->state] );
+Binary file info.o matches
+io.c:			crit->id ? "UPDATE" : "INSERT INTO",
+io.c:			smash_quotes(crit->name));
+io.c:		if(crit->id)
+io.c:			sprintf(buf+strlen(buf)," WHERE id='%li'",crit->id);
+io.c:		if(!crit->id)
+io.c:			crit->id = mysql_insert_id(mysql);
+io.c:		fwrite_shop(crit->shop);
+io.c:	if(crit && !flag_isset(crit->flags, CFLAG_PLAYER))
+io.c:	add_int(buf,"owner_id",	crit ? crit->id : 0			);
+io.c:	MSOCKET *sock = crit->socket;
+io.c:		crit->id ? "UPDATE" : "INSERT INTO",
+io.c:		smash_quotes(crit->name));
+io.c:	add_int(buf,"room",crit->in_room->vnum);
+io.c:	if(crit->id)
+io.c:		sprintf(buf+strlen(buf),"WHERE id='%li'",crit->id);
+io.c:	if (!crit->id)
+io.c:		crit->id = mysql_insert_id(mysql);
+io.c:			sock->id ? "UPDATE" : "INSERT INTO", smash_quotes(crit->name));
+io.c:			crit->in_room = hashfind_room(1);
+io.c:			crit->in_room = room;
+io.c:	sprintf(buf,"(SELECT * FROM object WHERE objtype = '%d' AND owner_id = '%li' ORDER BY nested ASC) UNION (SELECT * FROM object WHERE objtype <> '%d' AND owner_id='%li' ORDER BY in_obj ASC)",OBJ_CONTAINER,crit->id,OBJ_CONTAINER,crit->id);
+Binary file io.o matches
+macros.h:#define IsPlayer(crit)		(flag_isset(crit->flags, CFLAG_PLAYER))
+macros.h:#define IsPlaying(crit)		(!IsPlayer(crit) || crit->socket->connected == CON_PLAYING)
+macros.h:#define IsEditing(crit)		(crit->socket && (crit->socket->editing || crit->socket->string))
+macros.h:#define IsImmortal(crit)	(crit->level >= LEVEL_IMM)
+macros.h:#define IsImp(crit)		(crit->level == LEVEL_IMP)
+macros.h:#define IsDisabled(crit)	(crit->state >= STATE_SLEEPING)
+macros.h:	str_dup(&crit->name,		row[C_NAME]	);	\
+macros.h:	str_dup(&crit->keywords,	row[C_KEYWORDS]	);	\
+macros.h:	str_dup(&crit->description,	row[C_DESC]	);	\
+macros.h:	str_dup(&crit->long_descr,	row[C_LDESC]	);	\
+macros.h:	str_dup(&crit->wear,		row[C_WEAR]	);	\
+macros.h:	str_dup(&crit->loaded,		row[C_LOADED]	);	\
+macros.h:	crit->id		= atoi(row[0]);			\
+macros.h:	crit->prototype		= atoi(row[C_PROTOTYPE]);	\
+macros.h:	crit->level		= atoi(row[C_LEVEL]);		\
+macros.h:	crit->dexterity		= atoi(row[C_DEX]);		\
+macros.h:	crit->hp		= atoi(row[C_HP]);		\
+macros.h:	crit->max_hp		= atoi(row[C_MAXHP]);		\
+macros.h:	crit->intelligence	= atoi(row[C_INT]);		\
+macros.h:	crit->move		= atoi(row[C_MOVE]);		\
+macros.h:	crit->max_move		= atoi(row[C_MAXMOVE]);		\
+macros.h:	crit->sex		= atoi(row[C_SEX]);		\
+macros.h:	crit->state		= atoi(row[C_STATE]);		\
+macros.h:	crit->position		= atoi(row[C_POSITION]);	\
+macros.h:	crit->strength		= atoi(row[C_STR]);		\
+macros.h:	crit->iq		= atoi(row[C_IQ]);		\
+macros.h:	crit->alignment		= atoi(row[C_ALIGNMENT]);	\
+macros.h:	crit->me		= atoi(row[C_ME]);		\
+macros.h:	crit->ma		= atoi(row[C_MA]);		\
+macros.h:	crit->ps		= atoi(row[C_PS]);		\
+macros.h:	crit->pp		= atoi(row[C_PP]);		\
+macros.h:	crit->pe                = atoi(row[C_PE]);		\
+macros.h:	crit->pb                = atoi(row[C_PB]);		\
+macros.h:	crit->spd               = atoi(row[C_SPD]);		\
+macros.h:	str_dup(&crit->race,		row[C_RACE]	);	\
+macros.h:	str_dup(&crit->occ,		row[C_OCC]);		
+macros.h:	add_int(buf,"vnum",		crit->vnum		);	\
+macros.h:	add_int(buf,"prototype",	crit->prototype		);	\
+macros.h:	add_str(buf,"keywords",		crit->keywords		);	\
+macros.h:	add_str(buf,"long_descr",	crit->long_descr	);	\
+macros.h:	add_str(buf,"description",	crit->description	);	\
+macros.h:	add_str(buf,"wear",		crit->wear		);	\
+macros.h:	add_str(buf,"loaded",		crit->loaded		);	\
+macros.h:	add_int(buf,"level",		crit->level		);	\
+macros.h:	add_int(buf,"dexterity",	crit->dexterity		);	\
+macros.h:	add_int(buf,"intelligence",	crit->intelligence	);	\
+macros.h:	add_int(buf,"hp",		crit->hp		);	\
+macros.h:	add_int(buf,"max_hp",		crit->max_hp		);	\
+macros.h:	add_int(buf,"strength",		crit->strength		);	\
+macros.h:	add_int(buf,"iq",		crit->iq		);	\
+macros.h:	add_int(buf,"alignment",	crit->alignment		);	\
+macros.h:	add_int(buf,"sex",		crit->sex		);	\
+macros.h:	add_int(buf,"state",		crit->state		);	\
+macros.h:	add_int(buf,"position",		crit->position		);	\
+macros.h:	add_int(buf,"move",		crit->move		);	\
+macros.h:	add_int(buf,"max_move",		crit->max_move		);	\
+macros.h:	add_int(buf,"me",		crit->me		);	\
+macros.h:	add_int(buf,"ma",		crit->ma		);	\
+macros.h:	add_int(buf,"ps",		crit->ps		);	\
+macros.h:        add_int(buf,"pp",               crit->pp                );	\
+macros.h:        add_int(buf,"pe",               crit->pe                );	\
+macros.h:        add_int(buf,"pb",               crit->pb                );	\
+macros.h:        add_int(buf,"spd",              crit->spd               );	\
+macros.h:	add_str(buf,"race",		crit->race		);	\
+macros.h:	add_str(buf,"occ",		crit->occ		);
+macros.h://	send_to(crit->socket,"KEKE");
+macros.h:			crit->socket->variable = &field;						\
+macros.h:			crit->socket->modified++;						\
+macros.h:			crit->socket->modified++;						\
+macros.h:		crit->socket->modified++;							\
+macros.h:		crit->socket->modified++;							\
+macros.h:			crit->socket->modified++;					\
+macros.h:				crit->socket->modified++;				\
+macros.h:				crit->socket->modified++;				\
+Binary file main.o matches
+Binary file mud matches
+newdel.c:	for( crit = hash_creature[vnum%HASH_KEY]; crit; crit = crit->next_hash )
+newdel.c:		if( crit->vnum == vnum )
+newdel.c:	str_dup(&ban->ip,	crit ? crit->socket->ip	: "" 	);
+newdel.c:	str_dup(&ban->name,	crit ? crit->name	: ""	);
+newdel.c:	str_dup(&crit->keywords,	proto->keywords		);
+newdel.c:	str_dup(&crit->name,		proto->name		);
+newdel.c:	str_dup(&crit->description,	proto->description	);
+newdel.c:	str_dup(&crit->long_descr,	proto->long_descr	);
+newdel.c:	str_dup(&crit->wear,		proto->wear		);
+newdel.c:	str_dup(&crit->loaded,		""			);
+newdel.c:	crit->type		= TYPE_CREATURE;	// DO NOT CHANGE
+newdel.c:	crit->vnum		= vnum;
+newdel.c:	crit->prototype		= 0;
+newdel.c:	crit->socket		= &blank_socket;
+newdel.c:	crit->alignment		= proto->alignment;
+newdel.c:	crit->dexterity		= proto->dexterity;
+newdel.c:	crit->extras		= proto->extras;
+newdel.c:	crit->max_hp		= proto->max_hp;
+newdel.c:	crit->hp		= crit->max_hp;
+newdel.c:	crit->intelligence	= proto->intelligence;
+newdel.c:	crit->in_room		= hashfind_room(1);
+newdel.c:	crit->max_move		= proto->max_move;
+newdel.c:	crit->move		= crit->max_move;
+newdel.c:	crit->sex		= proto->sex;
+newdel.c:	crit->state		= proto->state;
+newdel.c:	crit->position		= proto->position;
+newdel.c:	crit->strength		= proto->strength;
+newdel.c:	crit->iq		= proto->iq;
+newdel.c:	crit->level		= proto->level;
+newdel.c:	flag_remove(crit->flags, CFLAG_PLAYER);
+newdel.c:		crit->shop = proto->shop;
+newdel.c:	crit->me		= proto->me;
+newdel.c:	crit->ma		= proto->ma;
+newdel.c:	crit->ps		= proto->ps;
+newdel.c:	crit->pp		= proto->pp;
+newdel.c:	crit->pe		= proto->pe;
+newdel.c:	crit->pb		= proto->pb;
+newdel.c:	crit->spd		= proto->spd;
+newdel.c:	crit->race 		= proto->race;
+newdel.c:	crit->occ		= proto->occ;
+newdel.c:	crit->type		= TYPE_CREATURE; // DO NOT CHANGE
+newdel.c:	crit->vnum		= vnum;
+newdel.c:	crit->prototype		= 1;
+newdel.c:	str_dup(&crit->keywords,	"creature"			);
+newdel.c:	str_dup(&crit->name,		"A creature"			);
+newdel.c:	str_dup(&crit->description,	"A creature's description."	);
+newdel.c:	str_dup(&crit->long_descr,	"A creature is here."		);
+newdel.c:	str_dup(&crit->wear,		default_wear			);
+newdel.c:	str_dup(&crit->loaded,		""				);
+newdel.c:	str_dup(&crit->race,		"None"				);
+newdel.c:	str_dup(&crit->occ,		"None"				);
+newdel.c:	crit->flags		= calloc(sizeof(long), ((CFLAG_LAST/32)+1));
+newdel.c:	crit->shop 		= 0;
+newdel.c:	crit->level		= 0;
+newdel.c:	while(crit->inventory)
+newdel.c:		free_object(crit->inventory);
+newdel.c:	while(crit->equipment)
+newdel.c:		free_object(crit->equipment);
+newdel.c:	if(crit->prototype)
+newdel.c:		if(crit->vnum == 1)
+newdel.c:		while(crit->extras)
+newdel.c:			free_extra(crit, crit->extras);
+newdel.c:		RemoveFromHashList(hash_creature,crit,crit->vnum)
+newdel.c:	free(crit->flags);
+newdel.c:	DeleteObject(crit->description)
+newdel.c:	DeleteObject(crit->long_descr)
+newdel.c:	DeleteObject(crit->name)
+newdel.c:	DeleteObject(crit->loaded)
+newdel.c:	if(crit->reset)
+newdel.c:		crit->reset->loaded--;
+newdel.c:		for(crit = creature_list; crit; crit = crit->next)
+newdel.c:			if(crit->in_room && crit->in_room == room)
+Binary file newdel.o matches
+object.c:		room = xcrit->in_room;
+object.c:		if( xcrit->in_room )
+object.c:		if( xcrit->mount )
+object.c:			xcrit->mount->rider = 0;
+object.c:			xcrit->mount = 0;
+object.c:			tocrit->rider = xcrit;
+object.c:			xcrit->mount = tocrit;
+object.c:			xcrit->in_room = room;
+object.c:			AddToContent(tocrit->inventory,xobj)
+object.c:			if(IsPlayer(tocrit))	xobj->owner_id = tocrit->id;
+object.c:	for(obj = crit->inventory; obj; obj = obj->next_content)
+object.c:		for(obj = crit->inventory; obj; obj = obj_next)
+object.c:			for(obj = crit->inventory; obj; obj = obj->next_content)
+object.c:	for(obj = crit->inventory; obj; obj = obj_next_content)
+object.c:		for(obj = crit->in_room->objects; obj; obj = obj->next_content)
+object.c:		for(obj = crit->inventory; obj; obj = obj->next_content)
+object.c:		for(obj = crit->equipment; obj; obj = obj->next_content)
+object.c:		for (xobj = crit->inventory; xobj; xobj = xobj_next)
+object.c:				xobj = splitcoins(xobj, crit->in_room, xobj->values[1]);
+object.c:			trans(xobj,crit->in_room);
+object.c:		xobj = splitcoins(xobj, crit->in_room, amount);
+object.c:	trans(xobj,crit->in_room);
+object.c:	for (exit = crit->in_room->exits; exit; exit = exit->next)
+object.c:					if (exit->to_vnum == crit->in_room->vnum)
+object.c:	for (exit = crit->in_room->exits; exit; exit = exit->next)
+object.c:					if (exit->to_vnum == crit->in_room->vnum)
+object.c:	for (exit = crit->in_room->exits; exit; exit = exit->next)
+object.c:			for (objs = crit->inventory; objs; objs = objs->next_content)
+object.c:							if (exit->to_vnum == crit->in_room->vnum)
+object.c:	for (exit = crit->in_room->exits; exit; exit = exit->next)
+object.c:			for (objs = crit->inventory; objs; objs = objs->next_content)
+object.c:							if (exit->to_vnum == crit->in_room->vnum)
+object.c:			for (hold = crit->inventory; hold; hold = xobj_next)
+object.c:			xobj = crit->in_room->objects;
+object.c:	RemoveFromContent(crit->inventory,obj)
+object.c:	AddToContent(crit->equipment,obj)
+object.c:		for (xobj = crit->inventory; xobj; xobj = xobj_next)
+object.c:		if(ValidString(strlistcmp(worn_table[find_worn(places[x])].worn, crit->wear)))
+object.c:			l = countlist(crit->wear, wplaces[z]); // held x 2 returns 2
+object.c:			for(eobj = crit->equipment; eobj; eobj = eobj->next_content)
+object.c:	RemoveFromContent(crit->equipment,obj)
+object.c:	AddToContent(crit->inventory,obj)
+object.c:		for (xobj = crit->equipment; xobj; xobj = xobj_next)
+object.c:		for (xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+object.c:			if (crit != xcrit && xcrit->shop)
+object.c:		if (!xcrit || !xcrit->shop)
+object.c:	shop = xcrit->shop;
+object.c:		sendcritf(crit,"%s does not have anything for sale.",xcrit->name);
+object.c:	for (xobj = xcrit->inventory; xobj; xobj = xobj->next_content)
+object.c:		sendcritf(crit,"%s does not have that item for sale.",xcrit->name);
+object.c:		for (xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+object.c:			if (xcrit->shop)
+object.c:		if (!xcrit || !xcrit->shop)
+object.c:	shop = xcrit->shop;
+object.c:		sendcritf(crit,"%s cannot buy anything from you.",xcrit->name);
+object.c:		sendcritf(crit,"%s doesn't have enough money to buy that.",xcrit->name);
+object.c:		for (xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+object.c:			if (crit != xcrit && xcrit->shop)
+object.c:		if (!xcrit || !xcrit->shop)
+object.c:	shop = xcrit->shop;
+object.c:		sendcritf(crit,"%s does not have anything for sale.",xcrit->name);
+object.c:        for (xobj = xcrit->inventory; xobj; xobj = xobj->next_content)
+object.c:	sendcritf(crit,"%s's store has the following items for sale: ",xcrit->name);
+object.c:	for (xobj = xcrit->inventory; xobj; xobj = xobj->next_content)
+object.c:                for (xcrit = crit->in_room->crits; xcrit; xcrit = xcrit->next_content)
+object.c:                        if (xcrit->shop)
+object.c:                if (!xcrit || !xcrit->shop)
+object.c:        shop = xcrit->shop;
+object.c:                sendcritf(crit,"%s does not house items.",xcrit->name);
+object.c:		xcrit->name,coin_string(cpd), xobj->name);
+object.c:	if (!flag_isset(xcrit->flags,CFLAG_BANKER))
+object.c:	sprintf(buf,"SELECT * FROM object WHERE owner_id='%li'",crit->id);	
+object.c:		sprintf(buf,"%s asks you, 'Retrieve which item?'\n\r",xcrit->name);
+object.c:	if (!flag_isset(xcrit->flags,CFLAG_BANKER))
+Binary file object.o matches
+Binary file os.o matches
+Binary file search.o matches
+socket.c:		for(xcrit = creature_list; xcrit; xcrit = xcrit->next)
+socket.c:                	if(xcrit->id == sock->pc->id && xcrit->socket != sock)
+socket.c:				if (xcrit->socket->connected != CON_LINKDEAD)
+socket.c:					send_immediately(xcrit->socket,"SOMEONE HAS TAKEN CONTROL OF YOUR CHARACTER.  (hopefully you)\n\r");
+socket.c:				xcrit->socket->pc = 0;
+socket.c:				free_socket(xcrit->socket);
+socket.c:				xcrit->socket = sock;
+socket.c:					send_to(crit->socket,snoopbuf);
+socket.c:					send_to(crit->socket,sock->outbuf);
+socket.c:					send_to(crit->socket,"&+W%%&N");
+socket.c:					process_output(crit->socket,1,1);
+socket.c:					send_to(crit->socket,snoopbuf);
+socket.c:					send_to(crit->socket,sock->inbuf);
+socket.c:					send_to(crit->socket,"\n\r");
+socket.c:		for(crit = hash_creature[i%HASH_KEY]; crit; crit = crit->next_hash)
+socket.c:			if(strlistcmp(argument, crit->keywords) != 0)
+socket.c:	if(!IsPlaying(crit) || crit->socket->string
+socket.c:	|| crit->socket->stringbuf || crit->socket->pause)
+socket.c:	if (crit->socket->doprompt > 1)
+socket.c:		crit->socket->doprompt = 1;
+socket.c:	prompt = crit->socket->prompt;
+socket.c:				sprintf(temp,"%s", crit->in_room->area->name);
+socket.c:				if (crit->level >= LEVEL_BUILDER)
+socket.c:					sprintf(temp,"%s", crit->in_room->area->builders);
+socket.c:				sprintf(temp,"%s",exit_names(crit->in_room,0));
+socket.c:				if (crit->level >= LEVEL_BUILDER)
+socket.c:					sprintf(temp,"%s",exit_names(crit->in_room,1));
+socket.c:				sprintf(temp,"%li",crit->hp);
+socket.c:				sprintf(temp,"%li",crit->max_hp);
+socket.c:					flag_isset(crit->flags,CFLAG_WIZINVIS) ? "&+W(I)&N" : "");
+socket.c:				sprintf(temp,"%li",crit->move);
+socket.c:				sprintf(temp,"%li",crit->max_move);
+socket.c:				if(crit->level >= LEVEL_BUILDER)
+socket.c:					sprintf(temp,"%li",crit->in_room->vnum);
+socket.c:					sprintf(temp,"%s",crit->in_room->name);				
+socket.c:				sprintf(temp,"%s",crit->in_room->name);
+socket.c:				if(crit->level >= LEVEL_BUILDER)
+socket.c:					sprintf(temp,"%s",roomtype_table[crit->in_room->roomtype]);
+socket.c:	if (flag_isset(crit->flags, CFLAG_BLANK) && !snoop)
+socket.c:	if(crit->state > STATE_NORMAL)
+socket.c:		sprintf(temp+strlen(temp),"&+Y(%s)&N ",state_table[crit->state]);
+socket.c:	if(crit->position > POS_STANDING)
+socket.c:		sprintf(temp+strlen(temp),"&+Y(%s)&N ",position_table[crit->position]);
+socket.c:	send_immediately(crit->socket, temp);
+socket.c6:		for(xcrit = creature_list; xcrit; xcrit = xcrit->next)
+socket.c6:                	if(xcrit->id == sock->pc->id && xcrit->socket != sock)
+socket.c6:				if (xcrit->socket->connected != CON_LINKDEAD)
+socket.c6:					send_immediately(xcrit->socket,"SOMEONE HAS TAKEN CONTROL OF YOUR CHARACTER.  (hopefully you)\n\r");
+socket.c6:				xcrit->socket->pc = 0;
+socket.c6:				free_socket(xcrit->socket);
+socket.c6:				xcrit->socket = sock;
+socket.c6:					send_to(crit->socket,snoopbuf);
+socket.c6:					send_to(crit->socket,sock->outbuf);
+socket.c6:					send_to(crit->socket,"&+W%%&N");
+socket.c6:					process_output(crit->socket,1,1);
+socket.c6:					send_to(crit->socket,snoopbuf);
+socket.c6:					send_to(crit->socket,sock->inbuf);
+socket.c6:					send_to(crit->socket,"\n\r");
+socket.c6:		for(crit = hash_creature[i%HASH_KEY]; crit; crit = crit->next_hash)
+socket.c6:			if(strlistcmp(argument, crit->keywords) != 0)
+socket.c6:	if(!IsPlaying(crit) || crit->socket->string
+socket.c6:	|| crit->socket->stringbuf || crit->socket->pause)
+socket.c6:	if (crit->socket->doprompt > 1)
+socket.c6:		crit->socket->doprompt = 1;
+socket.c6:	prompt = crit->socket->prompt;
+socket.c6:				sprintf(temp,"%s", crit->in_room->area->name);
+socket.c6:				if (crit->level >= LEVEL_BUILDER)
+socket.c6:					sprintf(temp,"%s", crit->in_room->area->builders);
+socket.c6:				sprintf(temp,"%s",exit_names(crit->in_room,0));
+socket.c6:				if (crit->level >= LEVEL_BUILDER)
+socket.c6:					sprintf(temp,"%s",exit_names(crit->in_room,1));
+socket.c6:				sprintf(temp,"%li",crit->hp);
+socket.c6:				sprintf(temp,"%li",crit->max_hp);
+socket.c6:					flag_isset(crit->flags,CFLAG_WIZINVIS) ? "&+W(I)&N" : "");
+socket.c6:				sprintf(temp,"%li",crit->move);
+socket.c6:				sprintf(temp,"%li",crit->max_move);
+socket.c6:				if(crit->level >= LEVEL_BUILDER)
+socket.c6:					sprintf(temp,"%li",crit->in_room->vnum);
+socket.c6:					sprintf(temp,"%s",crit->in_room->name);				
+socket.c6:				sprintf(temp,"%s",crit->in_room->name);
+socket.c6:				if(crit->level >= LEVEL_BUILDER)
+socket.c6:					sprintf(temp,"%s",roomtype_table[crit->in_room->roomtype]);
+socket.c6:	if (flag_isset(crit->flags, CFLAG_BLANK) && !snoop)
+socket.c6:	if(crit->state > STATE_NORMAL)
+socket.c6:		sprintf(temp+strlen(temp),"&+Y(%s)&N ",state_table[crit->state]);
+socket.c6:	if(crit->position > POS_STANDING)
+socket.c6:		sprintf(temp+strlen(temp),"&+Y(%s)&N ",position_table[crit->position]);
+socket.c6:	send_immediately(crit->socket, temp);
+Binary file socket.o matches
+update.c:		crit_next = crit->next;
+update.c:		if(!IsPlayer(crit) && crit->in_room->area->players < 1)
+update.c:		&& flag_isset(crit->flags, CFLAG_ANTIIDLE))
+update.c:			send_to(crit->socket,buf);
+update.c:					crit		= new_creature(reset->crit->vnum);
+update.c:					crit->reset	= reset;
+update.c:	for(crit = creature_list; crit; crit = crit->next)
+update.c:		if(crit->hp < -4)
+update.c:		else if(crit->hp < crit->max_hp)
+update.c:		if(crit->move < crit->max_move && crit->hp > 0)
+update.c:			crit->move++;
+Binary file update.o matches
+util.c:		for(crit = creature_list; crit; crit = crit->next)
+Binary file util.o matches
+wizard.c:str_dup(&crit->socket->string,"test");
+wizard.c://crit->socket->string = str_dup("test");
+wizard.c:		if(crit->level < level)
+wizard.c:	ROOM *room = crit->in_room;
+wizard.c:		trans(crit,xcrit->in_room);
+wizard.c:		sendcritf(crit,"%s banned.", xcrit->name);
+wizard.c:		mudlog("%s BANNED %s :: %s", crit->name, xcrit->name, ban->message);
+wizard.c:		free_socket(xcrit->socket);
+wizard.c:	mudlog("%s BANNED IP %s :: %s", crit->name, arguments[0], ban->message);
+wizard.c:	free_socket(xcrit->socket);
+wizard.c:	if(!strcasecmp(arguments[0],"allmobs") && crit->level == LEVEL_IMP)
+wizard.c:		if(IsPlayer(xcrit) && xcrit->level > crit->level)
+wizard.c:			sendcritf(xcrit, "%s forces you to '%s'", crit->name, buf);
+wizard.c:			if(crit->level != LEVEL_IMP)
+wizard.c:				   (strargcmp(area->builders, crit->name)
+wizard.c:		if(flag_isset(xcrit->flags, CFLAG_LOG))
+wizard.c:			flag_remove(xcrit->flags, CFLAG_LOG);
+wizard.c:			flag_set(xcrit->flags, CFLAG_LOG);
+wizard.c:			flag_isset(xcrit->flags, CFLAG_LOG) ? "Started" : "No longer", xcrit->name);
+wizard.c:	for(xcrit = crit->in_room->crits; xcrit; xcrit = xcrit_next)
+wizard.c:		xcrit_next = xcrit->next_content;
+wizard.c:	while(crit->in_room->objects)
+wizard.c:		free_object(crit->in_room->objects);
+wizard.c:	mudlog("HOTREBOOT by %s",crit->name);
+wizard.c:					reset->loadtype == TYPE_CREATURE ? reset->crit->name :
+wizard.c:	crit->hp	= crit->max_hp;
+wizard.c:	crit->move	= crit->max_move;
+wizard.c:		sendcritf(crit,"You restore %s!",xcrit->name);
+wizard.c:			if (strlistcmp(crit->name,zsock->snoop))
+wizard.c:				str_dup(&zsock->snoop, str_minus(zsock->snoop, crit->name, ' '));
+wizard.c:	else if (crit->socket->snoop)
+wizard.c:		if (strlistcmp(xcrit->name,crit->socket->snoop))
+wizard.c:	if (xcrit->socket->snoop)
+wizard.c:		if (strlistcmp(crit->name,xcrit->socket->snoop))
+wizard.c:			str_dup(&xcrit->socket->snoop, str_add(xcrit->socket->snoop, crit->name, ' '));
+wizard.c:		str_dup(&xcrit->socket->snoop,crit->name);
+wizard.c:	sendcritf(crit,"You start snooping %s.",xcrit->name);
+wizard.c:		trans(xcrit, crit->in_room);
+wizard.c:		room = xcrit->in_room;
+wizard.c:	message("$n appears in a swirling mist.",crit,crit->in_room,0);
+wizard.c:		str_dup(&xcrit->loaded, crit->name);
+wizard.c:		trans(xcrit, crit->in_room);
+wizard.c:		str_dup(&xobj->loaded, crit->name);
+wizard.c:                room = crit->in_room;
+wizard.c:                crit->socket->editing = (void*)xobj;
+wizard.c:		crit->socket->editing = 0;
+wizard.c:		sendcritf(crit,"Position:          %s",		position_table[crit->position]);
+wizard.c:		sendcritf(crit,"State:             %s",		state_table[crit->state]);
+wizard.c:		send_to(crit->socket,"Crit Contents[");
+wizard.c:		send_to(crit->socket,"Object Contents[");
+wizard.c:		for(xcrit = hash_creature[key%HASH_KEY]; xcrit; xcrit = xcrit->next_hash )
+wizard.c:			if(strlistcmp(xcrit->name,name)
+wizard.c:			|| strlistcmp(xcrit->keywords,name))
+wizard.c:				sendcritf(crit,"[%5li] %s",xcrit->vnum, xcrit->name);
+Binary file wizard.o matches

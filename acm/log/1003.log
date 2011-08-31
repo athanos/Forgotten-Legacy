@@ -1,0 +1,112 @@
+08/23/2011 12:34:59 :: Host socket listening on port 4000, file descriptor 3.
+08/23/2011 12:34:59 :: Random number generator initialized.
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM time
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM area
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM room WHERE vnum >= '1' AND vnum <= '1000'
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM object WHERE vnum >= '1' AND vnum <= '1000' AND prototype='1'
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM creature WHERE vnum >= '1' AND vnum <= '1000' AND prototype='1'
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: STRDUP error -- destination=None
+08/23/2011 12:34:59 :: Found creature 1 already in hashfind in fread_creature!
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM reset WHERE roomvnum >= '1' AND roomvnum <= '1000' ORDER BY nested ASC
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM shop WHERE keeper >= '1' AND keeper <= '1000'
+08/23/2011 12:34:59 :: Loading area default: 19 rooms, 10 objects, 3 creatures, 1 shops, and 1 resets loaded.
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM room WHERE vnum >= '1001' AND vnum <= '2000'
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM object WHERE vnum >= '1001' AND vnum <= '2000' AND prototype='1'
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM creature WHERE vnum >= '1001' AND vnum <= '2000' AND prototype='1'
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM reset WHERE roomvnum >= '1001' AND roomvnum <= '2000' ORDER BY nested ASC
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM shop WHERE keeper >= '1001' AND keeper <= '2000'
+08/23/2011 12:34:59 :: Loading area Test Area: 0 rooms, 0 objects, 0 creatures, 0 shops, and 0 resets loaded.
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM room_exit					     ORDER BY								CASE WHEN name='north'		THEN 1				     WHEN name='northeast'	THEN 2				     WHEN name='east'		THEN 3				     WHEN name='southeast'	THEN 4				     WHEN name='south'		THEN 5				     WHEN name='southwest'	THEN 6				     WHEN name='west'		THEN 7				     WHEN name='northwest'	THEN 8				     WHEN name='up'		THEN 9				     WHEN name='down'		THEN 10				ELSE 11 END DESC;
+08/23/2011 12:34:59 :: Exit ID#5359 has invalid room(2990l)!
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM extra
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM social
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM notes ORDER BY id
+08/23/2011 12:34:59 :: QUERY: SELECT UNIX_TIMESTAMP('2008-12-03 16:40:39')
+08/23/2011 12:34:59 :: Loading areas done.  Total Rooms=19, Objects=10, Creatures=3, Exits=49, Extras=0, Resets=1, Shops=1, Socials=42,  Notes=1
+08/23/2011 12:34:59 :: QUERY: SELECT * FROM ban
+08/23/2011 12:34:59 :: Bans: 0
+08/23/2011 12:34:59 :: QUERY: DELETE FROM object WHERE owner_id='0' AND prototype='0'
+08/23/2011 12:34:59 :: QUERY: UPDATE player SET online='0', descriptor='0'
+08/23/2011 12:34:59 :: BACKING UP SQL DATABASE [legacyAug23-2011]
+08/23/2011 12:35:12 :: Socket connected from 127.0.0.1
+08/23/2011 12:35:18 :: QUERY: SELECT * FROM creature WHERE name="Testthree" LIMIT 1
+08/23/2011 12:35:18 :: QUERY: SELECT * FROM player WHERE name="Testthree" LIMIT 1
+08/23/2011 12:35:30 :: 12: 13-10
+08/23/2011 12:35:38 :: 3: 13-10
+08/23/2011 12:35:38 :: QUERY: INSERT INTO creature SET name="Testthree",vnum='1' ,prototype='0' ,keywords="default creature" ,long_descr="A Default Creature is here" ,description="It looks default." ,wear="arms body head held held feet finger finger hands legs neck waist wrist wrist" ,loaded="" ,level='0' ,dexterity='10' ,intelligence='10' ,hp='50' ,max_hp='50' ,strength='10' ,iq='6' ,alignment='0' ,sex='1' ,state='1' ,position='0' ,move='50' ,max_move='50' ,flags="203" ,me='12' ,ma='2' ,ps='3' ,pp='9' ,pe='6' ,pb='4' ,spd='8' ,race="Hob-Goblin" ,occ="Priest of Darkness" ,room='1' 
+08/23/2011 12:35:38 :: QUERY: INSERT INTO player SET name="Testthree",host="" ,ip="127.0.0.1" ,last_command="" ,last_online='1314117338' ,hrs='0' ,numlines='40' ,password="TeodKZ79cURpc" ,prompt="Type [&+Whelp prompt&n] for prompt info> " ,title="" ,who_name="" ,online='0' ,descriptor='6' 
+08/23/2011 12:35:41 :: 3: 13-10
+08/23/2011 12:35:41 :: Testthree@Unknown(127.0.0.1) disconnected.
+08/23/2011 12:35:41 :: QUERY: UPDATE creature SET name="Testthree",vnum='1' ,prototype='0' ,keywords="default creature" ,long_descr="A Default Creature is here" ,description="It looks default." ,wear="arms body head held held feet finger finger hands legs neck waist wrist wrist" ,loaded="" ,level='0' ,dexterity='10' ,intelligence='10' ,hp='50' ,max_hp='50' ,strength='10' ,iq='6' ,alignment='0' ,sex='1' ,state='1' ,position='0' ,move='50' ,max_move='50' ,flags="203" ,me='12' ,ma='2' ,ps='3' ,pp='9' ,pe='6' ,pb='4' ,spd='8' ,race="Hob-Goblin" ,occ="Priest of Darkness" ,room='1' WHERE id='105'
+08/23/2011 12:35:41 :: QUERY: UPDATE player SET name="Testthree",host="" ,ip="127.0.0.1" ,last_command="" ,last_online='1314117341' ,hrs='0' ,numlines='40' ,password="TeodKZ79cURpc" ,prompt="Type [&+Whelp prompt&n] for prompt info> " ,title="" ,who_name="" ,online='0' ,descriptor='-1' WHERE id='19'
+08/23/2011 12:50:01 :: QUERY: UPDATE time SET start="1314117299",end='1314118201' ,backup='1314117299' ,mudstatus='0' ,age='80933438' ,year='162' ,month='6' ,day='1' ,hour='18' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 13:05:03 :: QUERY: UPDATE time SET start="1314117299",end='1314119103' ,backup='1314117299' ,mudstatus='0' ,age='80934338' ,year='162' ,month='6' ,day='2' ,hour='9' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 13:20:04 :: QUERY: UPDATE time SET start="1314117299",end='1314120004' ,backup='1314117299' ,mudstatus='0' ,age='80935238' ,year='162' ,month='6' ,day='3' ,hour='0' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 13:35:05 :: Pinging mysql server == Connected
+08/23/2011 13:35:05 :: QUERY: UPDATE time SET start="1314117299",end='1314120905' ,backup='1314117299' ,mudstatus='0' ,age='80936138' ,year='162' ,month='6' ,day='3' ,hour='15' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 13:50:07 :: QUERY: UPDATE time SET start="1314117299",end='1314121807' ,backup='1314117299' ,mudstatus='0' ,age='80937038' ,year='162' ,month='6' ,day='4' ,hour='6' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 14:05:08 :: QUERY: UPDATE time SET start="1314117299",end='1314122708' ,backup='1314117299' ,mudstatus='0' ,age='80937938' ,year='162' ,month='6' ,day='4' ,hour='21' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 14:20:10 :: QUERY: UPDATE time SET start="1314117299",end='1314123610' ,backup='1314117299' ,mudstatus='0' ,age='80938838' ,year='162' ,month='6' ,day='5' ,hour='12' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 14:35:11 :: Pinging mysql server == Connected
+08/23/2011 14:35:11 :: QUERY: UPDATE time SET start="1314117299",end='1314124511' ,backup='1314117299' ,mudstatus='0' ,age='80939738' ,year='162' ,month='6' ,day='6' ,hour='3' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 14:50:12 :: QUERY: UPDATE time SET start="1314117299",end='1314125412' ,backup='1314117299' ,mudstatus='0' ,age='80940638' ,year='162' ,month='6' ,day='6' ,hour='18' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 15:05:14 :: QUERY: UPDATE time SET start="1314117299",end='1314126314' ,backup='1314117299' ,mudstatus='0' ,age='80941538' ,year='162' ,month='6' ,day='7' ,hour='9' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 15:20:15 :: QUERY: UPDATE time SET start="1314117299",end='1314127215' ,backup='1314117299' ,mudstatus='0' ,age='80942438' ,year='162' ,month='6' ,day='8' ,hour='0' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 15:35:16 :: Pinging mysql server == Connected
+08/23/2011 15:35:16 :: QUERY: UPDATE time SET start="1314117299",end='1314128116' ,backup='1314117299' ,mudstatus='0' ,age='80943338' ,year='162' ,month='6' ,day='8' ,hour='15' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 15:50:18 :: QUERY: UPDATE time SET start="1314117299",end='1314129018' ,backup='1314117299' ,mudstatus='0' ,age='80944238' ,year='162' ,month='6' ,day='9' ,hour='6' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 16:05:19 :: QUERY: UPDATE time SET start="1314117299",end='1314129919' ,backup='1314117299' ,mudstatus='0' ,age='80945138' ,year='162' ,month='6' ,day='9' ,hour='21' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 16:20:20 :: QUERY: UPDATE time SET start="1314117299",end='1314130820' ,backup='1314117299' ,mudstatus='0' ,age='80946038' ,year='162' ,month='6' ,day='10' ,hour='12' ,minute='38' ,second='0'  WHERE id="188"
+08/23/2011 16:25:50 :: Socket connected from 127.0.0.1
+08/23/2011 16:25:52 :: QUERY: SELECT * FROM creature WHERE name="Athanos" LIMIT 1
+08/23/2011 16:25:52 :: QUERY: SELECT * FROM player WHERE name="Athanos" LIMIT 1
+08/23/2011 16:25:52 :: QUERY: (SELECT * FROM object WHERE objtype = '3' AND owner_id = '100' ORDER BY nested ASC) UNION (SELECT * FROM object WHERE objtype <> '3' AND owner_id='100' ORDER BY in_obj ASC)
+08/23/2011 16:25:52 :: QUERY: UPDATE player SET online='1' WHERE id='12'
+08/23/2011 16:25:55 :: 10: 13-10
+08/23/2011 16:25:57 :: 3: 13-10
+08/23/2011 16:25:57 :: Logging Athanos         -> help motd
+08/23/2011 16:25:57 :: QUERY: SELECT * FROM help WHERE level <= 20
+08/23/2011 16:25:57 :: QUERY: SELECT UNIX_TIMESTAMP('2004-03-13 15:14:45')
+08/23/2011 16:25:57 :: Logging Athanos         -> look 
+08/23/2011 16:26:03 :: 16: 13-10
+08/23/2011 16:26:03 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:26:03 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:26:03 :: looked for obj_possible, found object? yes
+08/23/2011 16:26:03 :: Logging Athanos         -> take toothpick
+08/23/2011 16:26:03 :: QUERY: INSERT INTO object SET name="a toothpick",vnum='1' ,prototype='0' ,keywords="toothpick" ,long_descr="A toothpick lies helplessly on the ground." ,description="It\'s wooden!" ,wear="held" ,loaded="" ,nested='0' ,objtype='0' ,objvalues="0|0" ,timer='0' ,weight='0' ,worn="" ,worth='1' ,flags="0" ,owner_id='100' ,in_obj='0' 
+08/23/2011 16:26:06 :: 5: 13-10
+08/23/2011 16:26:06 :: Logging Athanos         -> inv 
+08/23/2011 16:27:25 :: 16: 13-10
+08/23/2011 16:27:25 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:27:25 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:27:25 :: looked for obj_possible, found object? yes
+08/23/2011 16:27:25 :: Logging Athanos         -> drop toothpick
+08/23/2011 16:27:25 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:27:25 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:27:25 :: QUERY: UPDATE object SET owner_id='0', in_obj='0', worn='', nested='0' WHERE id='3634'
+08/23/2011 16:27:30 :: 16: 13-10
+08/23/2011 16:27:30 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:27:30 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:27:30 :: looked for obj_possible, found object? yes
+08/23/2011 16:27:30 :: Logging Athanos         -> drop toothpick
+08/23/2011 16:27:30 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:27:30 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:27:30 :: QUERY: UPDATE object SET owner_id='0', in_obj='0', worn='', nested='0' WHERE id='3633'
+08/23/2011 16:28:12 :: 15: 13-10
+08/23/2011 16:28:12 :: Logging Athanos         -> get toothpick
+08/23/2011 16:28:12 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:28:12 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:28:12 :: QUERY: UPDATE object SET owner_id='100', in_obj='0', worn='', nested='0' WHERE id='3633'
+08/23/2011 16:28:17 :: 16: 13-10
+08/23/2011 16:28:17 :: numbered_arg: got default, arg is [toothpick]
+08/23/2011 16:28:17 :: find obj: num is 1 arg[toothpick]
+08/23/2011 16:28:17 :: looked for obj_possible, found object? yes
+08/23/2011 16:28:17 :: Logging Athanos         -> wear toothpick
+08/23/2011 16:28:17 :: QUERY: UPDATE object SET owner_id='100', in_obj='0', worn='held', nested='0' WHERE id='3633'
+08/23/2011 16:35:22 :: Pinging mysql server == Connected
+08/23/2011 16:35:22 :: QUERY: UPDATE time SET start="1314117299",end='1314131722' ,backup='1314117299' ,mudstatus='0' ,age='80946938' ,year='162' ,month='6' ,day='11' ,hour='3' ,minute='38' ,second='0'  WHERE id="188"

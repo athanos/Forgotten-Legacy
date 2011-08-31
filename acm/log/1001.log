@@ -1,0 +1,60 @@
+08/17/2011 15:50:35 :: Host socket listening on port 4000, file descriptor 3.
+08/17/2011 15:50:35 :: Random number generator initialized.
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM time
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM area
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM room WHERE vnum >= '1' AND vnum <= '1000'
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM object WHERE vnum >= '1' AND vnum <= '1000' AND prototype='1'
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM creature WHERE vnum >= '1' AND vnum <= '1000' AND prototype='1'
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: STRDUP error -- destination=None
+08/17/2011 15:50:35 :: Found creature 1 already in hashfind in fread_creature!
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM reset WHERE roomvnum >= '1' AND roomvnum <= '1000' ORDER BY nested ASC
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM shop WHERE keeper >= '1' AND keeper <= '1000'
+08/17/2011 15:50:35 :: Loading area default: 19 rooms, 10 objects, 3 creatures, 1 shops, and 1 resets loaded.
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM room WHERE vnum >= '1001' AND vnum <= '2000'
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM object WHERE vnum >= '1001' AND vnum <= '2000' AND prototype='1'
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM creature WHERE vnum >= '1001' AND vnum <= '2000' AND prototype='1'
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM reset WHERE roomvnum >= '1001' AND roomvnum <= '2000' ORDER BY nested ASC
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM shop WHERE keeper >= '1001' AND keeper <= '2000'
+08/17/2011 15:50:35 :: Loading area Test Area: 0 rooms, 0 objects, 0 creatures, 0 shops, and 0 resets loaded.
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM room_exit					     ORDER BY								CASE WHEN name='north'		THEN 1				     WHEN name='northeast'	THEN 2				     WHEN name='east'		THEN 3				     WHEN name='southeast'	THEN 4				     WHEN name='south'		THEN 5				     WHEN name='southwest'	THEN 6				     WHEN name='west'		THEN 7				     WHEN name='northwest'	THEN 8				     WHEN name='up'		THEN 9				     WHEN name='down'		THEN 10				ELSE 11 END DESC;
+08/17/2011 15:50:35 :: Exit ID#5359 has invalid room(2990l)!
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM extra
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM social
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM notes ORDER BY id
+08/17/2011 15:50:35 :: QUERY: SELECT UNIX_TIMESTAMP('2008-12-03 16:40:39')
+08/17/2011 15:50:35 :: Loading areas done.  Total Rooms=19, Objects=10, Creatures=3, Exits=49, Extras=0, Resets=1, Shops=1, Socials=42,  Notes=1
+08/17/2011 15:50:35 :: QUERY: SELECT * FROM ban
+08/17/2011 15:50:35 :: Bans: 0
+08/17/2011 15:50:35 :: QUERY: DELETE FROM object WHERE owner_id='0' AND prototype='0'
+08/17/2011 15:50:35 :: QUERY: UPDATE player SET online='0', descriptor='0'
+08/17/2011 15:50:35 :: BACKING UP SQL DATABASE [legacyAug17-2011]
+08/17/2011 15:50:46 :: Socket connected from 127.0.0.1
+08/17/2011 15:50:55 :: QUERY: SELECT * FROM creature WHERE name="Test" LIMIT 1
+08/17/2011 15:50:55 :: QUERY: SELECT * FROM player WHERE name="Test" LIMIT 1
+08/17/2011 15:51:16 :: 3: 13-10
+08/17/2011 15:51:21 :: 3: 13-10
+08/17/2011 15:51:21 :: QUERY: INSERT INTO creature SET name="Test",vnum='1' ,prototype='0' ,keywords="default creature" ,long_descr="A Default Creature is here" ,description="It looks default." ,wear="arms body head held held feet finger finger hands legs neck waist wrist wrist" ,loaded="" ,level='0' ,dexterity='10' ,intelligence='10' ,hp='50' ,max_hp='50' ,strength='10' ,iq='3' ,alignment='0' ,sex='1' ,state='1' ,position='0' ,move='50' ,max_move='50' ,flags="203" ,me='10' ,ma='2' ,ps='19' ,pp='7' ,pe='16' ,pb='2' ,spd='17' ,race="Adram" ,occ="Mercenary" ,room='1' 
+08/17/2011 15:51:21 :: QUERY: INSERT INTO player SET name="Test",host="" ,ip="127.0.0.1" ,last_command="" ,last_online='1313610681' ,hrs='0' ,numlines='40' ,password="TekCFZRQX.2Po" ,prompt="Type [&+Whelp prompt&n] for prompt info> " ,title="" ,who_name="" ,online='0' ,descriptor='6' 
+08/17/2011 15:51:23 :: 3: 13-10
+08/17/2011 15:51:23 :: Logging Test            -> help motd
+08/17/2011 15:51:23 :: QUERY: SELECT * FROM help WHERE level <= 0
+08/17/2011 15:51:23 :: QUERY: SELECT UNIX_TIMESTAMP('2004-03-13 15:14:45')
+08/17/2011 15:51:23 :: Logging Test            -> look 
+08/17/2011 15:51:26 :: 7: 13-10
+08/17/2011 15:51:26 :: Logging Test            -> score 
+08/17/2011 15:51:42 :: 6: 13-10
+08/17/2011 15:51:42 :: Logging Test            -> exit 
+08/17/2011 15:51:42 :: name: Test || invalid command: exit 
+08/17/2011 15:51:48 :: 6: 13-10
+08/17/2011 15:51:48 :: Logging Test            -> quit 
+08/17/2011 15:51:48 :: QUERY: UPDATE creature SET name="Test",vnum='1' ,prototype='0' ,keywords="default creature" ,long_descr="A Default Creature is here" ,description="It looks default." ,wear="arms body head held held feet finger finger hands legs neck waist wrist wrist" ,loaded="" ,level='0' ,dexterity='10' ,intelligence='10' ,hp='50' ,max_hp='50' ,strength='10' ,iq='3' ,alignment='0' ,sex='1' ,state='1' ,position='0' ,move='50' ,max_move='50' ,flags="203" ,me='10' ,ma='2' ,ps='19' ,pp='7' ,pe='16' ,pb='2' ,spd='17' ,race="Adram" ,occ="Mercenary" ,room='1' WHERE id='103'
+08/17/2011 15:51:48 :: QUERY: UPDATE player SET name="Test",host="" ,ip="127.0.0.1" ,last_command="quit" ,last_online='1313610708' ,hrs='0' ,numlines='40' ,password="TekCFZRQX.2Po" ,prompt="Type [&+Whelp prompt&n] for prompt info> " ,title="" ,who_name="" ,online='0' ,descriptor='6' WHERE id='17'
+08/17/2011 15:51:51 :: 3: 13-10
+08/17/2011 15:51:51 :: Test@Unknown(127.0.0.1) disconnected.
+08/17/2011 15:51:51 :: QUERY: UPDATE creature SET name="Test",vnum='1' ,prototype='0' ,keywords="default creature" ,long_descr="A Default Creature is here" ,description="It looks default." ,wear="arms body head held held feet finger finger hands legs neck waist wrist wrist" ,loaded="" ,level='0' ,dexterity='10' ,intelligence='10' ,hp='50' ,max_hp='50' ,strength='10' ,iq='3' ,alignment='0' ,sex='1' ,state='1' ,position='0' ,move='50' ,max_move='50' ,flags="203" ,me='10' ,ma='2' ,ps='19' ,pp='7' ,pe='16' ,pb='2' ,spd='17' ,race="Adram" ,occ="Mercenary" ,room='1' WHERE id='103'
+08/17/2011 15:51:51 :: QUERY: UPDATE player SET name="Test",host="" ,ip="127.0.0.1" ,last_command="quit" ,last_online='1313610711' ,hrs='0' ,numlines='40' ,password="TekCFZRQX.2Po" ,prompt="Type [&+Whelp prompt&n] for prompt info> " ,title="" ,who_name="" ,online='0' ,descriptor='-1' WHERE id='17'
